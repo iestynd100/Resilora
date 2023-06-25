@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Resliora here!</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="title">
+    <h1>Contact Resliora here!</h1>
+  </div>
+  <div class="contact-form">
+    <form id="contact-form">
+      <div class="input-fields">
+        <input type="text" class="input" placeholder="Name" name="name">
+        <input type="email" class="input" placeholder="Email Address" name="email">
+        <input type="text" class="input" placeholder="Phone" name="phone">
+        <input type="text" class="input" placeholder="Subject" name="subject">
+      </div>
+      <div class="msg">
+        <textarea placeholder="Message" name="message"></textarea>
+        <button type="submit" class="btn">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<a href="../index.html" class="return-btn">Return to Site</a>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Retrieve form data
+    var name = document.getElementsByName("name")[0].value;
+    var email = document.getElementsByName("email")[0].value;
+    var phone = document.getElementsByName("phone")[0].value;
+    var subject = document.getElementsByName("subject")[0].value;
+    var message = document.getElementsByName("message")[0].value;
+
+    // Construct the email body
+    var body = "Name: " + name + "\n";
+    body += "Email: " + email + "\n";
+    body += "Phone: " + phone + "\n";
+    body += "Subject: " + subject + "\n";
+    body += "Message: " + message;
+
+    // Construct the mailto URL
+    var mailtoUrl = "mailto:your-email@example.com" +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+    // Open the default email client with the mailto URL
+    window.location.href = mailtoUrl;
+  });
+</script>
+
+</body>
+</html>
+
